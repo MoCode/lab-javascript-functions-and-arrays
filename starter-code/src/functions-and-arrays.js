@@ -1,4 +1,17 @@
 // Find the maximum
+/*
+function maxOfTwoNumbers(num1, num2) {
+  let max = Math.max(num1, num2)
+  return max;
+}
+*/
+function maxOfTwoNumbers(n1, n2) {
+  if (n1 > n2) {
+    return n1;
+  }
+  return n2
+}
+maxOfTwoNumbers(5, 6);
 
 // Finding Longest Word
 var words = [
@@ -11,13 +24,74 @@ var words = [
   'crackpot'
 ];
 
+function findLongestWord(arr) {
+  let word = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (word.length < arr[i].length) {
+      word = arr[i];
+    }
+  }
+  if (arr.length === 0) {
+    return null
+  } else {
+    return word
+  }
+  //return arr.length === 0 ? null : word;
+}
+findLongestWord(words);
+
 // Calculating a Sum
 
 var numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
+/*
+function sumArray(arr) {
+  let number = 0;
+  for (i = 0; i < arr.length; i++) {
+    number += arr[i];
+  }
+  if (arr.length === 0) {
+    return 0;
+  } else {
+    return number;
+  }
+}
+*/
+function sumArray(numberArr) { //Practicing While Loop
+  /*
+  if (!numberArr.length) { 
+    return 0;
+  }
+  */
+  let i = 0;
+  let sum = 0; //Sice we define sum as 0 we dont need anymore the first if statement
+  while (i < numberArr.length) {
+    sum += numberArr[i];
+    i++;
+  }
+  return sum;
+}
+
+
 // Calculate the Average
 
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+
+/*
+function averageNumbers(arr) {
+  if (arr.length === 0) {
+    return null
+  }
+  return sumArray(arr) / arr.length
+}
+*/
+
+function averageNumbers(arr) {
+  if (!arr.length) return null;
+  const sum = sumArray(arr);
+  const avg = sum / arr.length;
+  return avg;
+}
 
 // Array of Strings
 var wordsArr = [
@@ -32,6 +106,25 @@ var wordsArr = [
   'fuel',
   'palace'
 ];
+/*
+function averageWordLength(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  charCount = arr.join("");
+  return charCount.length / arr.length;
+}
+*/
+function averageWordLength(arr) {
+  if (!arr.length) return null;
+  let sum = 0;
+  arr.forEach(function (word) {
+    sum += word.length;
+  })
+  const avg = sum / arr.length;
+  return avg;
+}
+
 
 // Unique Arrays
 var wordsUnique = [
@@ -48,6 +141,21 @@ var wordsUnique = [
   'bring'
 ];
 
+function uniquifyArray(arr) {
+  if (arr == 0) {
+    return [];
+  }
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newArr.indexOf(arr[i]) === -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+
+
 // Finding Elements
 var wordsFind = [
   'machine',
@@ -59,6 +167,27 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+
+/*
+function doesWordExist(arr, word) {
+  if (arr.length === 0) {
+    return false;
+  }
+  if (arr.includes(word)) {
+    return true;
+  }
+  return false;
+}
+*/
+function doesWordExist(arr, search) {
+  // if (!arr.length) return false; //If arr.length === 0
+  // if (arr.includes(search)) return true;
+  // return false;
+  if (arr.indexOf(search) !== -1) return true;
+  return false;
+}
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -74,6 +203,14 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(wordArr, search) {
+  let count = 0;
+  for (let i = 0; i < wordArr.length; i++) {
+    if (wordArr[i] === search) count++;
+  }
+}
+
 // Bonus Quest
 
 var matrix = [
